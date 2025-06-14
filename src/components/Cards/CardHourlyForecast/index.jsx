@@ -37,7 +37,7 @@ function CardHourlyForecast() {
 
     return (
         <div className="card flex-none w-[65%] bg-[#444444] text-white rounded-2xl flex flex-col items-center justify-evenly gap-10 ">
-            <h1 className="text-3xl font-bold capitalize">Proximas previsões</h1>
+            <h1 className="text-3xl font-bold capitalize text-center">Proximas previsões</h1>
 
             <div className=" box-card-previsao flex gap-4">
                 {forecastData && forecastData.length > 0 ? forecastData.map((item) => (

@@ -39,7 +39,7 @@ function CardNextDays() {
     
     return (
         <div className="card w-[35%] bg-[#444444] text-white rounded-2xl flex flex-col items-center gap-10 ">
-            <h1 className="text-2xl font-bold capitalize">Previsão dos proximos 5 dias</h1>
+            <h1 className="text-2xl font-bold capitalize text-center">Previsão dos proximos 5 dias</h1>
             {forecastData && (
                 <>
                     <div className="w-full flex gap-5 flex-col justify-between">
