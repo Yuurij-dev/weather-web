@@ -86,13 +86,6 @@ body{
 
 
   /* Segundo card */
-  @media screen and (max-width: 1355px) {
-    
-
-    .second-box > :nth-child(1),.second-box > :nth-child(2){
-      width: 50%;
-    }
-  }
 
   @media screen and (max-width: 995px) {
     /* segundo cards */

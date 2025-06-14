@@ -37,13 +37,14 @@ function CardHourlyForecast() {
 
     return (
         <div className="card flex-none w-[65%] bg-[#444444] text-white rounded-2xl flex flex-col items-center justify-evenly gap-10 ">
-            <h1 className="text-3xl font-bold capitalize">Proximas previsões de Hoje</h1>
+            <h1 className="text-3xl font-bold capitalize">Proximas previsões</h1>
 
-            <div className="flex gap-1.5 ">
+            <div className="flex gap-4 ">
                 {forecastData && forecastData.length > 0 ? forecastData.map((item) => (
                 <div key={item.dt_txt} className="card-previsão flex flex-col items-center bg-[#373636] rounded-4xl gap-2">
                     
                     <span className="text-2xl font-bold">{item.dt_txt.split(" ")[1].slice(0, 5)}</span>
+                    <span className="font-bold">{new Date(item.dt * 1000).toLocaleDateString('pt-BR', {weekday: 'long'})}, {new Date(item.dt * 1000).toLocaleDateString('pt-BR', {day: '2-digit', month: 'short'}).replace('.', '')}</span>
                     <img
                         className='w-[100px]'
                         src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
