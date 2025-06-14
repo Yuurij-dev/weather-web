@@ -87,16 +87,6 @@ body{
 
   /* Segundo card */
 
-  /* @media screen and (max-width: 1370px) {
-    .card-previsao{
-      flex-direction: column;
-      height: auto;
-      background-color: #4b4b4b;
-      border-radius: 20px;
-      padding: 20px;
-    }
-  } */
-
   @media screen and (max-width: 995px) {
     /* segundo cards */
     .second-box{
@@ -106,6 +96,10 @@ body{
       width: 100%;
     }
 
+    .box-card-previsao{
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .card-previsao{
       flex-direction: column;
       height: auto;
