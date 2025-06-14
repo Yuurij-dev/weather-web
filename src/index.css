@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  width: 100%;
+  min-height: 100vh;
+  background: #424242;
+  background: radial-gradient(circle, rgba(66, 66, 66, 1) 0%, rgba(94, 94, 94, 1) 47%, rgba(66, 66, 66, 1) 100%);
+}
+
+.container{
+  /* height: 100vh; */
+  padding: 30px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.card-previsão{
+  padding: 20px;
+}
+
+/* Medias queries */
+
+  /* Header */
+  @media screen and (max-width: 935px) {
+    header nav {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  header nav input{
+    width: 100%;
+  }
+
+  /* Primeiros cards */
+  @media screen and (max-width: 1080px) {
+    
+    .first-box{
+      flex-direction: column;
+    }
+    .first-box > :nth-child(1),.first-box > :nth-child(2){
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 728px){
+    .weateher-card{
+      flex-direction: column;
+      gap: 20px;
+    }
+    .weateher-card > :nth-child(1){
+      flex-direction: row;
+    }
+
+    .weateher-card > :nth-child(2) h1{
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and (max-width: 555px) {
+    .weateher-card > :nth-child(1){
+      flex-direction: column;
+      text-align: center;
+    }
+    .weateher-card > :nth-child(1) > :nth-child(2){
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 468px) {
+    .weateher-card > :nth-child(1) > :nth-child(2){
+      flex-direction: column;
+    }
+  }
+
+
+  /* Segundo card */
+  @media screen and (max-width: 1355px) {
+    
+
+    .second-box > :nth-child(1),.second-box > :nth-child(2){
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 995px) {
+    /* segundo cards */
+    .second-box{
+      flex-direction: column;
+    }
+    .second-box > :nth-child(1),.second-box > :nth-child(2){
+      width: 100%;
+    }
+  }
+
