@@ -42,7 +42,7 @@ function CardNextDays() {
             <h1 className="text-2xl font-bold capitalize">Previsão dos proximos 5 dias</h1>
             {forecastData && (
                 <>
-                    <div className="w-full flex flex-col justify-between">
+                    <div className="w-full flex gap-5 flex-col justify-between">
                         {forecastData.list
                         .filter((item) => item.dt_txt.includes("12:00:00"))
                         .map((item, index) => (

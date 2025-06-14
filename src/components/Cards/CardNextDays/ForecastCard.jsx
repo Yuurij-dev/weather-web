@@ -2,7 +2,7 @@ function ForecastCard({ date, temp, description, icon }) {
   const day = (new Date(date).toLocaleDateString("pt-BR", { weekday: "long" }) + ' ' + new Date(date).toLocaleDateString('pt-BR', {day: '2-digit', month: 'short'}).replace('de', '').replace('.', ''))
   
   return (
-    <div className="card-previsao w-full h-20 flex items-center justify-between">
+    <div className="card-previsao w-full gap-2.5 h-20 flex items-center justify-between">
       <img
         className="w-25 h-25"
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
