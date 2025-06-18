@@ -53,3 +53,4 @@ Acesse no navegador: [http://localhost:5173](http://localhost:5173)
 ## 🖼️ Preview
 
 ![Weather App Preview](https://i.imgur.com/9NeiXbm.png)
+![Weather App Preview Mobile](https://i.imgur.com/zGEpwLa.png)
