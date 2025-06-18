@@ -2,8 +2,10 @@ import './styles.css'
 import { CardToday, WeatherCard, CardNextDays, CardHourlyForecast } from '../../components'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getWeather } from '../../api/weatherLocation'
 
 function Home() {
+    const [error, setError] = useState(null)
     const [city, setCity] = useState('')
     const navigate = useNavigate()
 
@@ -13,16 +15,31 @@ function Home() {
         setCity(value)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if(city.trim() !== ''){
-            navigate(`/city/${encodeURIComponent(city)}`)
+    const handleSubmit = async (e) => {
+        e.preventDefault()   
+        if(city.trim() === ''){
+            setError("Por favor, digite o nome de uma cidade")
+            return
         }
+
+        try {
+            await getWeather(city)
+            setError(null)
+            navigate(`/city/${encodeURIComponent(city)}`)
+            } catch (error) {
+                setError(error.message)
+                console.error("Erro ao buscar clima: ", error)
+            }
     }
 
     return (
         <div className='container'>
             <header className='w-full'>
+                {error && (
+                    <div className='text-center'>
+                        <p className='text-red-400 text-[16px] font-bold'>{error}</p>
+                    </div>
+                )}
                 <nav className='w-full flex gap-2.5 justify-between items-center'>
                     <div >
                         <span className='text-white'>Dark Mode</span>

@@ -35,7 +35,7 @@ function CardNextDaysSearch() {
         <div className="card w-[35%] bg-[#444444] text-white rounded-2xl flex flex-col items-center gap-10 ">
             <h1 className="text-2xl font-bold capitalize text-center">Previsão dos proximos 5 dias</h1>
             {loading && <p>Carregando...</p>}
-            {error && <p className="text-red-500">{error}</p>}
+            {/* {error && <p className="text-red-500">{error}</p>} */}
 
             {forecastData && (
                 <>
