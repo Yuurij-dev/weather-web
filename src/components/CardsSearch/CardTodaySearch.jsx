@@ -48,7 +48,8 @@ function CardTodaySearch() {
         <>
           <h1 className='text-2xl font-bold'>{data.name}, {data.sys.country}</h1>
           <div className='flex flex-col items-center gap-1'>
-            <span className='text-8xl font-bold'>{new Date(data.dt * 1000).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit'})}</span>
+            <span className='text-8xl font-bold'>
+              {new Date((data.dt + data.timezone) * 1000).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}</span>
             <span>{new Date(data.dt * 1000).toLocaleDateString('pt-BR', {weekday: 'long'})}, {new Date(data.dt * 1000).toLocaleDateString('pt-BR', {day: '2-digit', month: 'short'}).replace('.', '')}</span>
           </div>
         </>
