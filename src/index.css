@@ -78,6 +78,9 @@ body{
   }
 
   @media screen and (max-width: 555px) {
+    header nav div form{
+      flex-direction: column;
+    }
     .weateher-card > :nth-child(1){
       flex-direction: column;
       text-align: center;
