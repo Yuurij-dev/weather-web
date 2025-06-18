@@ -1,12 +1,55 @@
-# React + Vite
+# 🌤️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo de previsão do tempo construído com **React.js**, **Vite**, **TailwindCSS** e **React Router DOM**, utilizando a **API OpenWeatherMap** para exibir dados meteorológicos em tempo real.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React.js](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Router DOM](https://reactrouter.com/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
 
-## Expanding the ESLint configuration
+## 🔧 Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Busca de informações climáticas por geolocalização.
+- Exibição de dados como temperatura, umidade, vento, nascer e pôr do sol.
+- Interface responsiva e moderna com TailwindCSS.
+- Navegação entre páginas com React Router.
+
+## 📦 Instalação
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-usuario/weather-app.git
+cd weather-app
+```
+
+2. **Instale as dependências:**
+
+```bash
+npm install
+```
+
+3. **Configure sua chave da API OpenWeatherMap:**
+
+Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+```env
+VITE_WEATHER_API_KEY=sua_chave_aqui
+```
+
+> Você pode obter sua chave gratuita em: https://openweathermap.org/api
+
+4. **Rode o projeto localmente:**
+
+```bash
+npm run dev
+```
+
+Acesse no navegador: [http://localhost:5173](http://localhost:5173)
+
+## 🖼️ Preview
+
+![Weather App Preview](https://i.imgur.com/9NeiXbm.png)
