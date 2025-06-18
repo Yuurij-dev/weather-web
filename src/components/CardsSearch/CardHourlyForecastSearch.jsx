@@ -45,7 +45,7 @@ function CardHourlyForecastSearch() {
 
             <div className=" box-card-previsao flex gap-4">
                 {forecastData && forecastData.length > 0 ? forecastData.map((item) => (
-                <div key={item.dt_txt} className="card-previsão flex flex-col items-center bg-[#373636] rounded-4xl gap-2">
+                <div key={item.dt_txt} className="card-previsão flex flex-col items-center rounded-4xl gap-2">
                     
                     <span className="text-2xl font-bold">{item.dt_txt.split(" ")[1].slice(0, 5)}</span>
                     <span className="font-bold">{new Date(item.dt * 1000).toLocaleDateString('pt-BR', {weekday: 'long'})}, {new Date(item.dt * 1000).toLocaleDateString('pt-BR', {day: '2-digit', month: 'short'}).replace('.', '')}</span>
@@ -69,6 +69,7 @@ function CardHourlyForecastSearch() {
                         clipRule="evenodd"
                         />
                     </svg>
+                    
                     </div>
                     <span className="font-bold text-[18px]">{parseInt(item.wind.speed)}km/h</span>
                 </div>

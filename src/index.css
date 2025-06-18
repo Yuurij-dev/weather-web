@@ -9,14 +9,13 @@
 }
 
 body{
+  overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
-  background: #424242;
-  background: radial-gradient(circle, rgba(66, 66, 66, 1) 0%, rgba(94, 94, 94, 1) 47%, rgba(66, 66, 66, 1) 100%);
+  background-color: #2874cc;
 }
 
 .container{
-  /* height: 100vh; */
   padding: 30px;
   width: 100%;
   max-width: 1500px;
@@ -25,6 +24,11 @@ body{
 
 .card-previsão{
   padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Medias queries */
@@ -39,6 +43,13 @@ body{
 
   header nav input{
     width: 100%;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
   }
 
   /* Primeiros cards */
@@ -103,7 +114,6 @@ body{
     .card-previsao{
       flex-direction: column;
       height: auto;
-      background-color: #4b4b4b;
       border-radius: 20px;
       padding: 20px;
     }   

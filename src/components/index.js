@@ -8,6 +8,8 @@ import WeatherCardSearch from "./CardsSearch/WeatherCardSearch";
 import CardNextDaysSearch from "./CardsSearch/CardNextDaysSearch/CardNextDaysSearch";
 import CardHourlyForecastSearch from "./CardsSearch/CardHourlyForecastSearch";
 
+import Clouds from "./Clouds/Clouds";
+
 export {
     CardToday,
     WeatherCard,
@@ -16,5 +18,6 @@ export {
     CardTodaySearch,
     WeatherCardSearch,
     CardNextDaysSearch,
-    CardHourlyForecastSearch
+    CardHourlyForecastSearch,
+    Clouds
 };

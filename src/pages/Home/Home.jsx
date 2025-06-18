@@ -1,5 +1,5 @@
 import './styles.css'
-import { CardToday, WeatherCard, CardNextDays, CardHourlyForecast } from '../../components'
+import { CardToday, WeatherCard, CardNextDays, CardHourlyForecast, Clouds } from '../../components'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getWeather } from '../../api/weatherLocation'
@@ -34,6 +34,7 @@ function Home() {
 
     return (
         <div className='container'>
+            <Clouds/>
             <header className='w-full'>
                 {error && (
                     <div className='text-center'>
@@ -41,9 +42,6 @@ function Home() {
                     </div>
                 )}
                 <nav className='w-full flex gap-2.5 justify-between items-center'>
-                    <div >
-                        <span className='text-white'>Dark Mode</span>
-                    </div>
 
                     <div className='w-full '>
                         <form onSubmit={handleSubmit} className='flex gap-3'>
@@ -68,6 +66,8 @@ function Home() {
                     <CardHourlyForecast/>
                 </div>
             </main>
+            <Clouds/>
+
         </div>
     )
 }
