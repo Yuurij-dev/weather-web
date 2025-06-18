@@ -6,7 +6,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/city" element={<City />} />
+        <Route path="/city/:nomeDaCidade" element={<City />} />
       </Routes>
     </BrowserRouter>
   );

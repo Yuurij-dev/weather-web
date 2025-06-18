@@ -34,3 +34,27 @@ export async function getTodayForecast({ lat, lon }) {
 
     return filteredForecasts
 }
+
+export async function getTodayForecastByCity(cityName) {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=metric&lang=pt`;
+  const response = await axios.get(url);
+
+  const allForecasts = response.data.list;
+
+  const today = new Date().toISOString().split('T')[0];
+
+  const desiredHours = ['12:00:00', '15:00:00', '18:00:00', '21:00:00', '00:00:00'];
+
+  const filteredForecasts = allForecasts.filter((item) => {
+    const [date, time] = item.dt_txt.split(' ');
+    return date === today && desiredHours.includes(time);
+  });
+
+  return filteredForecasts;
+}
+
+export async function getWeather(city) {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt`;
+  const response = await axios.get(url);
+  return response.data;
+}

@@ -1,37 +1,58 @@
 import './styles.css'
-import { Card, WeatherCard, CardNextDays, CardHourlyForecast } from '../../components'
+import { CardToday, WeatherCard, CardNextDays, CardHourlyForecast } from '../../components'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
-  return (
-    <div className='container'>
-        <header className='w-full'>
-            <nav className='w-full flex gap-2.5 justify-between items-center'>
-                <div >
-                    <span className='text-white'>Dark Mode</span>
+    const [city, setCity] = useState('')
+    const navigate = useNavigate()
+
+    const handleSearchCity = (e) => {
+        const value = e.target.value
+
+        setCity(value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(city.trim() !== ''){
+            navigate(`/city/${encodeURIComponent(city)}`)
+        }
+    }
+
+    return (
+        <div className='container'>
+            <header className='w-full'>
+                <nav className='w-full flex gap-2.5 justify-between items-center'>
+                    <div >
+                        <span className='text-white'>Dark Mode</span>
+                    </div>
+
+                    <div className='w-full '>
+                        <form onSubmit={handleSubmit} className='flex gap-3'>
+                            <input onChange={handleSearchCity} type="text" placeholder='Procure por sua cidade de preferencia...'
+                            className='w-[500px] h-[50px] rounded-3xl bg-[#444444] text-white'/>
+                            <button type='submit' className='bg-[#4cbb17] hover:bg-[#4dad1e] transition-all text-white rounded-3xl cursor-pointer'>Procurar</button>
+                        </form>
+                    </div>
+
+                    
+                </nav>
+            </header>
+
+            <main className='w-full container-card flex flex-col items-start gap-15'>
+                <div className='first-box w-full flex gap-15 '>
+                    <CardToday/>
+                    <WeatherCard/>
                 </div>
-
-                <div className='w-full '>
-                    <input type="text" placeholder='Procure por sua cidade de preferencia...'
-                    className='w-[500px] h-[50px] rounded-3xl bg-[#444444] text-white'/>
+                
+                <div className='second-box w-full flex gap-15'>
+                    <CardNextDays/>
+                    <CardHourlyForecast/>
                 </div>
-
-                <button className='bg-[#4cbb17] hover:bg-[#4dad1e] transition-all text-white rounded-3xl cursor-pointer'>Localização Atual</button>
-            </nav>
-        </header>
-
-        <main className='w-full container-card flex flex-col items-start gap-15'>
-            <div className='first-box w-full flex gap-15 '>
-                <Card/>
-                <WeatherCard/>
-            </div>
-            
-            <div className='second-box w-full flex gap-15'>
-                <CardNextDays/>
-                <CardHourlyForecast/>
-            </div>
-        </main>
-    </div>
-  )
+            </main>
+        </div>
+    )
 }
 
 export default Home

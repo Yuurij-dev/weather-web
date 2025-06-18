@@ -1,0 +1,11 @@
+
+nav{
+    padding: 20px;
+}
+nav input {
+    padding-left: 20px;
+    border: 3px solid rgba(41,41,41,0.99);
+}
+nav button{
+    padding: 10px;
+}
