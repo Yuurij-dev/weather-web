@@ -17,7 +17,7 @@
 .cloud2 {
   top: 40%;
   left: 30vw;
-  animation-duration: 100s;
+  animation-duration: 90s;
   opacity: 0.4;
 }
 
@@ -38,14 +38,14 @@
 .cloud5 {
   top: 85%;
   left: 90vw;
-  animation-duration: 100s;
+  animation-duration: 50s;
   opacity: 0.3;
 }
 
 .cloud6 {
   top: 10%;
   left: 5vw;
-  animation-duration: 50s;
+  animation-duration: 20s;
 }
 
 @keyframes moveCloud {
