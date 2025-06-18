@@ -1,4 +1,5 @@
 import './styles.css'
+import Mira from '../../assets/mira.png'
 import { CardTodaySearch, WeatherCardSearch, CardNextDaysSearch, CardHourlyForecastSearch, Clouds } from '../../components'
 
 import {useState} from 'react'
@@ -34,7 +35,9 @@ function City() {
             }
     }
 
-    
+    const handleUserLocation = (e) => {
+        navigate('/')
+    }
 
     return (
         <div className='container'>
@@ -46,16 +49,16 @@ function City() {
                     </div>
                 )}
 
-                <nav className='w-full flex gap-2.5 justify-between items-center'>
-                        
-                    <div className='w-full '>
+                <nav className='w-full flex gap-2.5 justify-between items-center'>                 
+                    <div className='w-full flex flex-col gap-5'>
+                        <div className='flex justify-center'>
+                            <button onClick={handleUserLocation} className='bg-[#4cbb17] hover:bg-[#4dad1e] transition-all text-white rounded-3xl cursor-pointer flex items-center'><img className='w-[40px] h-[40px]' src={Mira} alt="" /> Usar minha localização</button>
+                        </div>
                         <form onSubmit={handleSubmit} className='flex gap-3'>
                             <input onChange={handleSearchCity} type="text" placeholder='Procure por sua cidade de preferencia...'
                             className='w-[500px] h-[50px] rounded-3xl text-white'/>
-                            <button type='submit' className='bg-[#4cbb17] hover:bg-[#4dad1e] transition-all text-white rounded-3xl cursor-pointer'>Procurar</button>
+                            <button type='submit' className='bg-[#4cbb17] hover:bg-[#4dad1e] transition-all text-white rounded-3xl cursor-pointer'>Procurar</button>                               
                         </form>
-
-                        
                     </div>
                 </nav>
             </header>
