@@ -1,4 +1,4 @@
-import { getForeCastLocation } from "../../../api/weatherLocation"
+import { getForeCastLocationByCity } from "../../../api/weatherLocation"
 import { useState, useEffect } from "react"
 import ForecastCardSearch from "./ForecastCardSearch";
 
@@ -7,55 +7,36 @@ import { useParams } from "react-router-dom";
 
 function CardNextDaysSearch() {
     // Previsão do clima dos proximos 5 dias
-    const [location, setLocation] = useState(null)
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [forecastData, setForecastData] = useState(null)
 
-    useEffect(() => {
-        if(!navigator.geolocation) {
-            setError("Geolocalização não suportada pelo navegador.")
-            setLoading(false)
-        }
-
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                setLocation({
-                    lat: position.coords.latitude,
-                    lon: position.coords.longitude,
-                })
-            },
-            (err) => {
-                setError("Permissão negada ou erro ao obter localização")
-                setLoading(false)
-            }
-        )
-    }, [])
-
-    useEffect(() => {
-        if(location) {
-        getForeCastLocation({lat: location.lat, lon: location.lon})
-            .then(setForecastData)
-            .catch(console.error)
-        }
-    }, [location])
-
     const {nomeDaCidade} = useParams()
-    const [city, setCity] = useState('')
-    const [data, setData] = useState(null)
 
-    useEffect( () => {
+    useEffect(() => {
         if(nomeDaCidade) {
             const decoded = decodeURIComponent(nomeDaCidade)
-            setCity(decoded)
 
-            getWeather(decoded).then(setData).catch(console.error)
-        }
+            setLoading(true)
+            setError(null)
+
+            getForeCastLocationByCity({city: decoded})
+                .then(data => {
+                    setForecastData(data)
+                })
+                .catch(err => {
+                    console.error(err)
+                    setError(err.message || "Cidade não encontrada")
+                }).finally(() => setLoading(false))
+        }       
     }, [nomeDaCidade])
     
     return (
         <div className="card w-[35%] bg-[#444444] text-white rounded-2xl flex flex-col items-center gap-10 ">
             <h1 className="text-2xl font-bold capitalize text-center">Previsão dos proximos 5 dias</h1>
+            {loading && <p>Carregando...</p>}
+            {error && <p className="text-red-500">{error}</p>}
+
             {forecastData && (
                 <>
                     <div className="w-full flex gap-5 flex-col justify-between">

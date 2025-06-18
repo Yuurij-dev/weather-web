@@ -53,8 +53,30 @@ export async function getTodayForecastByCity(cityName) {
   return filteredForecasts;
 }
 
+export async function getForeCastLocationByCity({city}) {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=pt`;
+
+    try{
+      const response = await axios.get(url)
+      return response.data
+    } catch (error) {
+      console.error("Erro na requisição:", error.response?.data)
+      throw new Error("Cidade não encontrada")
+    }
+}
+
 export async function getWeather(city) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt`;
-  const response = await axios.get(url);
-  return response.data;
+  
+  try{
+    const response = await axios.get(url);
+    return response.data;
+  } catch (err) {
+    if(err.response && err.response.status == 404){
+      throw new Error("Cidade não encontrada")
+    }else{
+      throw new Error("Erro ao buscar dados da cidade.")
+    }
+  }
+  
 }

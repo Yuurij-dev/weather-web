@@ -1,10 +1,12 @@
 import './styles.css'
 import { CardTodaySearch, WeatherCardSearch, CardNextDaysSearch, CardHourlyForecastSearch } from '../../components'
 
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getWeather } from '../../api/weatherLocation'
 
 function City() {
+    const [error, setError] = useState(null)
 
     const [city, setCity] = useState('')
     const navigate = useNavigate()
