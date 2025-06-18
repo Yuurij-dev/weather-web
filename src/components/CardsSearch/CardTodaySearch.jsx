@@ -43,7 +43,6 @@ function CardTodaySearch() {
 
   return (
     <div className='card w-[40%] bg-[#444444] text-white rounded-2xl flex flex-col items-center justify-center gap-7'>
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       {data ? (
         <>

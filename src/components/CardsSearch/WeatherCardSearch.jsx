@@ -48,7 +48,6 @@ function WeatherCardSearch() {
   
   return (
     <div className='card w-[60%] bg-[#444444] text-white rounded-2xl'>
-      {error && <p style={{ color: "red" }}>{error}</p>}
 
       {data ? (
         <div className='weateher-card flex justify-between'>
