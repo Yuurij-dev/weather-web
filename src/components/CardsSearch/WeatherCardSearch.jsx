@@ -64,9 +64,10 @@ function WeatherCardSearch() {
 
                 <div className='flex flex-col'>
                   <span>Nascer do sol</span>
-                  <span>{new Date(data.sys.sunrise * 1000).toLocaleTimeString('pt-br', {
+                  <span>{new Date((data.sys.sunrise + data.timezone) * 1000).toLocaleTimeString('pt-br', {
                     hour: '2-digit',
-                    minute: '2-digit'
+                    minute: '2-digit',
+                    timeZone: 'UTC'
                   })}</span>
                 </div>
               </div>
@@ -76,9 +77,10 @@ function WeatherCardSearch() {
 
                 <div className='flex flex-col '>
                   <span>Pôr do sol</span>
-                  <span>{new Date(data.sys.sunrise * 1000).toLocaleTimeString('pt-br', {
+                  <span>{new Date((data.sys.sunset + data.timezone) * 1000).toLocaleTimeString('pt-br', {
                     hour: '2-digit',
-                    minute: '2-digit'
+                    minute: '2-digit',
+                    timeZone: 'UTC'
                   })}</span>
                 </div>
               </div>
